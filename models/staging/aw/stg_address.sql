@@ -8,12 +8,13 @@ renamed as (
 
 select 
 
-    "AddressID" as address_id,
-    "AddressLine1" as address_name,
-    "City" as city,
-    "StateProvinceID" as state_province_id
+    AddressID as address_id,
+    AddressLine1 as address_name,
+    City as city,
+    StateProvinceID as state_province_id
 
 from source
 )
 
 select * from renamed
+

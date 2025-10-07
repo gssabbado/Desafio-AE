@@ -2,16 +2,18 @@ version: 2
 
 sources:
   - name: adventure_works
-    database: FEA25_05
-    schema: FEA25_05.RAW_ADVENTURE_WORKS
+    database: fea25_05
+    schema: RAW_ADVENTURE_WORKS
     tables:
       - name: PERSON_ADDRESS
-      - name: PERSON_COUTRYREGION
+      - name: PERSON_COUNTRYREGION
       - name: SALES_CREDITCARD
       - name: SALES_CUSTOMER
       - name: PERSON_PERSON
       - name: PRODUCTION_PRODUCT
       - name: SALES_SALESORDERDETAIL
       - name: SALES_SALESORDERHEADER
+      - name: SALES_SALESORDERHEADERSALESREASON
       - name: SALES_SALESREASON
+      - name: SALES_SALESTERRITORY
       - name: PERSON_STATEPROVINCE
