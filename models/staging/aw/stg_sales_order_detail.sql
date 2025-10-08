@@ -8,12 +8,12 @@ renamed as (
 
 select 
 
-    SalesOrderID as sales_order_id,
-    SalesOrderDetailID as sales_order_detail_id,
-    OrderQty as quantity,
-    ProductID as product_id,
-    UnitPrice as unit_price,
-    UnitPriceDiscount as unit_price_discount
+    cast(SalesOrderID as int) as sales_order_id,
+    cast(SalesOrderDetailID as int) as sales_order_detail_id,
+    cast(OrderQty as int) as quantity,
+    cast(ProductID as int) as product_id,
+    cast(UnitPrice as numeric(18,6)) as unit_price,
+    cast(UnitPriceDiscount as numeric(18,6)) as unit_price_discount
 
 
 from source

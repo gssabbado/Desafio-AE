@@ -8,10 +8,10 @@ renamed as (
 
 select 
 
-    AddressID as address_id,
-    AddressLine1 as address_name,
-    City as city,
-    StateProvinceID as state_province_id
+    cast(AddressID as int) as address_id,
+    cast(AddressLine1 as string) as address_name,
+    cast(City as string) as city,
+    cast(StateProvinceID as int) as state_province_id
 
 from source
 )

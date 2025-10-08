@@ -8,11 +8,11 @@ renamed as (
 
 select 
 
-    BusinessEntityID as person_id,
-    PersonType as person_type,
-    FirstName as first_name,
-    MiddleName as middle_name,
-    LastName as last_name
+    cast(BusinessEntityID as int) as person_id,
+    cast(PersonType as varchar(2)) as person_type,
+    cast(FirstName as string) as first_name,
+    cast(MiddleName as string) as middle_name,
+    cast(LastName as string) as last_name
 
 
 from source

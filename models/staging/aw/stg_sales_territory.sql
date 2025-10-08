@@ -8,14 +8,14 @@ renamed as (
 
     select 
  
-        TerritoryID as territory_id,
-        Name as territory_name,
-        CountryRegionCode as country_region_id, 
-        "group" as territory_group, 
-        SalesYTD as sales_ytd,
-        SalesLastYear as sales_last_year,
-        CostYTD as cost_ytd, 
-        CostLastYear as cost_last_year
+        cast(TerritoryID as int) as territory_id,
+        cast(Name as string) as territory_name,
+        cast(CountryRegionCode as varchar(2)) as country_region_code, 
+        cast("group" as string) as territory_group, 
+        cast(SalesYTD as numeric(18,4)) as sales_ytd,
+        cast(SalesLastYear as numeric(18, 4)) as sales_last_year,
+        cast(CostYTD as numeric(18,4)) as cost_ytd, 
+        cast(CostLastYear as numeric(18,4)) as cost_last_year
 
     from source
 )

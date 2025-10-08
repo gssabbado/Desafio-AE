@@ -8,10 +8,10 @@ renamed as (
 
 select 
 
-    CustomerID as customer_id,
-    PersonID as person_id,
-    StoreID as store_id,
-    TerritoryID as territory_id
+    cast(CustomerID as int) as customer_id,
+    cast(PersonID as int) as person_id,
+    cast(StoreID as int) as store_id,
+    cast(TerritoryID as int) as territory_id
 
 
 from source
