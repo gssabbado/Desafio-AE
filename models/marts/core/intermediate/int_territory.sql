@@ -1,4 +1,3 @@
--- mudar
 with address as (
     select * from {{ ref('stg_address')}}
 ),
