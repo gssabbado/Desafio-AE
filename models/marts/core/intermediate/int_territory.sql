@@ -1,32 +1,40 @@
 -- mudar
-with customer as (
-    select * from {{ ref('stg_customer')}}
+with address as (
+    select * from {{ ref('stg_address')}}
 ),
 
-person as (
-    select * from {{ ref('stg_person')}}
+country_region as (
+    select * from {{ ref('stg_country_region')}}
 ),
 
-store as (
-    select * from {{ ref('stg_store')}}
+state_province as (
+    select * from {{ ref('stg_state_province')}}
+),
+
+territory as (
+    select * from {{ ref('stg_sales_territory')}}
 )
+
 
 , joined as (
     select
-        customer.customer_id,
-        customer.person_id,
-        customer.store_id,
-        customer.territory_id,
-        person.business_entity_id as person_business_entity_id,
-        person.person_type as person_type,
-        person.first_name,
-        person.middle_name,
-        person.full_name,
-        store.business_entity_id as store_business_entity_id,
-        store.store_name
-        from customer
-        left join person on customer.person_id = person.business_entity_id
-        left join store on customer.store_id = store.business_entity_id        
-        
+        address.address_id,
+        address.address_name,
+        address.city,
+        country_region.country_region_name,
+        state_province.state_province_id,
+        state_province.state_province_name,
+        territory.territory_id,
+        territory.territory_name,
+        territory.country_region_code,
+        territory.territory_group,
+        territory.sales_ytd,
+        territory.sales_last_year,
+        territory.cost_ytd,
+        territory.cost_last_year
+        from territory
+        left join state_province on territory.territory_id = state_province.territory_id
+        left join address on state_province.state_province_id = address.state_province_id        
+        left join country_region on territory.country_region_code = country_region.country_region_code
 )
 select * from joined
