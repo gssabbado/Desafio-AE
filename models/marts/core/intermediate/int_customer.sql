@@ -19,11 +19,11 @@ store as (
         person.person_type as person_type,
         person.first_name,
         person.middle_name,
-        person.full_name,
+        person.last_name,
         store.store_name
         from customer
-        left join person on customer.person_id = person.business_entity_id
-        left join store on customer.store_id = store.business_entity_id        
+        left join person on customer.person_id = person.person_id
+        left join store on customer.store_id = store.store_id        
         
 )
 select * from joined
