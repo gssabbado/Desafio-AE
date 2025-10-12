@@ -63,7 +63,6 @@ sources:
           - name: TerritoryID
             description: "Foreign Key"
             tests:
-              - unique
               - not_null
 
 
@@ -184,7 +183,6 @@ sources:
           - name: CountryRegionCode
             description: "Foreign key"
             tests:
-              - unique
               - not_null
 
           - name: TerritoryID
