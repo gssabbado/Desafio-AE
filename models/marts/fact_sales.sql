@@ -4,18 +4,23 @@ with sales as (
 
 final as (
     select
-
-        sales_order_id,
-        address_id,
-        state_province_id,
-        country_region_code,
-        
-        territory_name,
-        territory_group,
-        country_region_name,
-        state_province_name,
-        city,
-        address_name
+        order_pk,
+        creditcard_pk,
+        sales_reason_pk,
+        territory_fk,
+        customer_fk,
+        order_date,
+        quantity,
+        unit_price,
+        unit_price_discount,
+        tax_amt,
+        freight,
+        gross_total,
+        net_total,
+        status,
+        sales_reason_name,
+        reason_type,
+        card_type
 
     from territory
 )

@@ -5,20 +5,15 @@ with customers as (
 final as (
     select
 
-        customer_id,
-        person_id,
-        store_id,
-        territory_id,
+        customer_pk,
+        person_fk,
+        store_fk,
+        territory_fk,
 
         person_type,
-        first_name,
-        middle_name,
-        last_name,
-
-        first_name || ' ' || last_name as full_name,
-
-
+        person_name,
         store_name
+
 
     from customers
 )

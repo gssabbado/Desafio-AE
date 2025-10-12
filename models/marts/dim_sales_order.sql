@@ -1,19 +1,23 @@
-with order as (
+with orders as (
     select * from {{ ref('int_reason') }}
 ),
 
 final as (
     select
 
-        sales_order_id,
-        sales_reason_id,
-        product_id,
-
-        sales_reason_name,
-        reason_type,
+        order_pk,
+        sales_order_pk,
+        sales_order_detail_pk,
+        territory_fk,
+        customer_fk,
+        creditcard_fk,
+        order_date,
         quantity,
         unit_price,
-        unit_price_discount
+        unit_price_discount,
+        tax_amt,
+        freight,
+        status
 
     from product
 )

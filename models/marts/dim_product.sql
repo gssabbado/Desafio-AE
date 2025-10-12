@@ -5,15 +5,15 @@ with product as (
 final as (
     select
 
-        product_id,
-        person_id,
-        store_id,
-        territory_id,
+        product_pk,
+        product_category_pk,
+        product_subcategory_fk,
 
         product_name,
         category_name,
         subcategory_name,
-        standard_cost
+        standard_cost,
+        list_price
 
     from product
 )
