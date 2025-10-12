@@ -6,7 +6,6 @@ final as (
     select
         order_pk,
         creditcard_pk,
-        sales_reason_pk,
         territory_fk,
         customer_fk,
         order_date,
@@ -18,11 +17,10 @@ final as (
         gross_total,
         net_total,
         status,
-        sales_reason_name,
-        reason_type,
+        sales_reasons,
         card_type
 
-    from territory
+    from sales
 )
 
 select * from final

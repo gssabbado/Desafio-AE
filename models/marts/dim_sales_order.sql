@@ -1,5 +1,5 @@
 with orders as (
-    select * from {{ ref('int_reason') }}
+    select * from {{ ref('int_orders') }}
 ),
 
 final as (
@@ -19,7 +19,7 @@ final as (
         freight,
         status
 
-    from product
+    from orders
 )
 
 select * from final

@@ -15,7 +15,7 @@ final as (
         cost_last_year,
         territory_group,
         territory_name,
-        country_region.country_region_name,
+        country_region_name,
         state_province_name,
         city,
         address_name
