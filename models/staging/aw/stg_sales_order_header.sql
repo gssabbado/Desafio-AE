@@ -12,6 +12,7 @@ select
     cast(SalesOrderID as int) as sales_order_pk,
     cast(CreditCardID as int) as creditcard_fk,
     cast(TerritoryID as int) as territory_fk,
+    cast(CustomerID as int) as customer_fk,
     cast(OrderDate as date) as order_date,
     cast(DueDate as date) as due_date,
     cast(ShipDate as date) as ship_date,
