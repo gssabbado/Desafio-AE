@@ -8,7 +8,7 @@ renamed as (
 
 select 
 
-    cast(SalesReasonID as int) as sales_reason_id,
+    cast(SalesReasonID as int) as sales_reason_pk,
     cast(Name as string) as sales_reason_name,
     cast(ReasonType as string) as reason_type
 

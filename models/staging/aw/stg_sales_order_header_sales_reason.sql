@@ -8,8 +8,8 @@ renamed as (
 
 select 
 
-    cast(SalesOrderID as int) as sales_order_id,
-    cast(SalesReasonID as int) as sales_reason_id
+    cast(SalesOrderID as int) as sales_order_fk,
+    cast(SalesReasonID as int) as sales_reason_fk
 
 
 

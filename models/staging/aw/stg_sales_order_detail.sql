@@ -8,10 +8,10 @@ renamed as (
 
 select 
 
-    cast(SalesOrderID as int) as sales_order_id,
-    cast(SalesOrderDetailID as int) as sales_order_detail_id,
+    cast(SalesOrderDetailID as int) as sales_order_detail_pk,
+    cast(SalesOrderID as int) as sales_order_fk,
+    cast(ProductID as int) as product_fk,
     cast(OrderQty as int) as quantity,
-    cast(ProductID as int) as product_id,
     cast(UnitPrice as numeric(18,6)) as unit_price,
     cast(UnitPriceDiscount as numeric(18,6)) as unit_price_discount
 

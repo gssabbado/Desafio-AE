@@ -8,9 +8,9 @@ renamed as (
 
     select 
  
-        cast(TerritoryID as int) as territory_id,
+        cast(TerritoryID as int) as territory_pk,
+        cast(CountryRegionCode as varchar(2)) as country_region_fk, 
         cast(Name as string) as territory_name,
-        cast(CountryRegionCode as varchar(2)) as country_region_code, 
         cast("group" as string) as territory_group, 
         cast(SalesYTD as numeric(18,4)) as sales_ytd,
         cast(SalesLastYear as numeric(18, 4)) as sales_last_year,

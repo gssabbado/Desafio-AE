@@ -8,8 +8,8 @@ renamed as (
 
 select 
 
-    cast(ProductCategoryID as int) as product_category_id,
-    cast(Name as string) as product_category_name,
+    cast(ProductCategoryID as int) as product_category_pk,
+    cast(Name as string) as product_category_name
 
 
 

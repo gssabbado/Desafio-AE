@@ -8,7 +8,7 @@ renamed as (
 
 select 
 
-    cast(BusinessEntityID as int) as store_id,
+    cast(BusinessEntityID as int) as store_pk,
     cast(Name as string) as store_name
 
 

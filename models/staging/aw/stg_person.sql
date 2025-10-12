@@ -8,7 +8,7 @@ renamed as (
 
 select 
 
-    cast(BusinessEntityID as int) as person_id,
+    cast(BusinessEntityID as int) as person_pk,
     cast(PersonType as varchar(2)) as person_type,
     FirstName || ' ' || LastName as person_name
     --cast(FirstName as string) as first_name,
