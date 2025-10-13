@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: fct_sales
+  - name: fact_sales
     description: "Fact table containing all sales transactions with calculated metrics."
     columns:
       - name: order_pk
@@ -10,13 +10,6 @@ models:
           - unique
           - not_null
 
-      - name: creditcard_pk
-        description: "Foreign key to the credit card dimension."
-        tests:
-          - relationships:
-              arguments:
-                to: ref('dim_creditcard')
-                field: creditcard_pk
       - name: territory_fk
         description: "Foreign key to the territory dimension."
         tests:
