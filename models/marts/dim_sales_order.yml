@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: dim_sales_order 
+    description: "Dimensional table containing all order line items and their transactional details."
+    columns:
+      - name: order_pk
+        description: "The unique primary key for each order line item."
+        tests:
+          - unique
+          - not_null
+
+      - name: sales_order_pk
+        description: "The primary key for the sales order header."
+
+      - name: sales_order_detail_pk
+        description: "The primary key for the sales order detail line."
+
+      - name: territory_fk
+        description: "Foreign key to the territory dimension."
+        tests:
+          - relationships:
+              to: ref('dim_territory')
+              field: territory_pk
+
+      - name: customer_fk
+        description: "Foreign key to the customer dimension."
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_pk
+
+      - name: creditcard_fk
+        description: "Foreign key to the credit card dimension."
+        tests:
+          - relationships:
+              to: ref('dim_creditcard')
+              field: creditcard_pk
+
+      - name: order_date
+        description: "The date the order was placed."
+        tests:
+          - not_null
+
+      - name: quantity
+        description: "The quantity of the product ordered."
+
+      - name: unit_price
+        description: "The unit price of the product."
+
+      - name: unit_price_discount
+        description: "The discount applied to the unit price."
+
+      - name: tax_amt
+        description: "The tax amount for the order line."
+
+      - name: freight
+        description: "The freight cost for the order."
+
+      - name: status
+        description: "The status of the order (e.g., Shipped, In Process)."

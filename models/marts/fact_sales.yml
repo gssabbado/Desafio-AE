@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: fct_sales 
+    description: "Fact table containing all sales transactions with calculated metrics."
+    columns:
+      - name: order_pk
+        description: "The unique primary key for each order line item."
+        tests:
+          - unique
+          - not_null
+
+      - name: creditcard_pk
+        description: "Foreign key to the credit card dimension."
+        tests:
+          - relationships:
+              to: ref('dim_creditcard')
+              field: creditcard_pk
+
+      - name: territory_fk
+        description: "Foreign key to the territory dimension."
+        tests:
+          - relationships:
+              to: ref('dim_territory')
+              field: territory_pk
+
+      - name: customer_fk
+        description: "Foreign key to the customer dimension."
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_pk
+
+      - name: order_date
+        description: "The date the order was placed."
+        tests:
+          - not_null
+
+      - name: quantity
+        description: "The quantity of the product ordered."
+
+      - name: unit_price
+        description: "The unit price of the product."
+
+      - name: unit_price_discount
+        description: "The discount applied to the unit price."
+
+      - name: tax_amt
+        description: "The tax amount for the order line."
+
+      - name: freight
+        description: "The freight cost for the order."
+
+      - name: gross_total
+        description: "The total gross amount for the line item (quantity * unit_price)."
+
+      - name: net_total
+        description: "The total net amount for the line item after discounts."
+
+      - name: status
+        description: "The status of the order (e.g., Shipped, In Process)."
+
+      - name: sales_reasons
+        description: "A comma-separated list of sales reasons associated with the order."
+
+      - name: card_type
+        description: "The type of credit card used for the purchase (e.g., Vista, Colonial)."
