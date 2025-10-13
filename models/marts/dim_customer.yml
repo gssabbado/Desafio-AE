@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: dim_customer 
+    description: "Dimension model containing customer information, including personal details and associated store."
+    columns:
+      - name: customer_pk
+        description: "The unique primary key for each customer."
+        tests:
+          - unique
+          - not_null
+
+      - name: person_fk
+        description: "Foreign key to the person dimension."
+        tests:
+          - relationships:
+              to: ref('dim_person')
+              field: person_pk
+
+      - name: store_fk
+        description: "Foreign key to the store dimension."
+        tests:
+          - relationships:
+              to: ref('dim_store')
+              field: store_pk
+
+      - name: territory_fk
+        description: "Foreign key to the territory dimension."
+        tests:
+          - relationships:
+              to: ref('dim_territory')
+              field: territory_pk
+
+      - name: person_type
+        description: "The type of person (e.g., Employee, Individual Customer)."
+
+      - name: person_name
+        description: "The full name of the customer."
+
+      - name: store_name
+        description: "The name of the store the customer is associated with."

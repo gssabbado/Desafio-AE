@@ -1,0 +1,198 @@
+version: 2
+
+sources:
+  - name: adventure_works
+    database: fea25_05
+    schema: RAW_ADVENTURE_WORKS
+    tables:
+      - name: PERSON_ADDRESS
+        description: "Raw person address data"
+        columns:
+          - name: AddressID
+            description: "Primary key to the address"
+            tests:
+              - unique
+              - not_null
+
+          - name: StateProvinceID
+            description: "Foreign key to the state province"
+            tests:
+              - not_null
+
+      - name: PERSON_COUNTRYREGION
+        description: "Raw country region data"
+        columns:
+          - name: CountryRegionCode
+            description: "Country region code data"
+            tests:
+              - not_null
+
+      - name: SALES_CREDITCARD
+        description: "Raw creditcard data"
+        columns:
+          - name: CreditCardID
+            tests:
+              - unique
+              - not_null
+
+
+
+      - name: SALES_CUSTOMER
+        description: "Raw customer data"
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              arguments:
+                combination_of_columns:
+                  - CustomerID
+                  - PersonID
+
+          - dbt_utils.unique_combination_of_columns:
+              arguments:
+                combination_of_columns:
+                  - CustomerID
+                  - StoreID
+
+        columns:
+          - name: CustomerID
+            description: "Primary key"
+            tests:
+              - unique
+              - not_null
+
+
+          - name: TerritoryID
+            description: "Foreign Key"
+            tests:
+              - not_null
+
+
+      - name: PERSON_PERSON
+        description: "Raw person data"
+        columns:
+          - name: BusinessEntityID
+            tests:
+              - unique
+              - not_null
+
+      - name: PRODUCTION_PRODUCT
+        description: "Raw product data"
+        columns:
+          - name: ProductID
+            description: "Primary key"
+            tests:
+              - unique
+              - not_null
+
+          - name: Name
+            tests:
+              - not_null
+
+          - name: StandardCost
+            tests:
+              - not_null
+
+
+      - name: PRODUCTION_PRODUCTCATEGORY
+        description: "Raw production category data"
+        columns:
+          - name: ProductCategoryID
+            description: "Primary key"
+            tests:
+              - unique
+              - not_null
+
+      - name: PRODUCTION_PRODUCTSUBCATEGORY
+        description: "Raw production subcategory data"
+        columns:
+          - name: ProductSubcategoryID
+            description: "Primary key"
+            tests:
+              - unique
+              - not_null
+
+          - name: ProductCategoryID
+            description: "Foreign key"
+            tests:
+              - not_null
+
+
+      - name: SALES_SALESORDERDETAIL
+        description: "Raw sales order detail data"
+        columns:
+          - name: SalesOrderID
+            description: "Foreign and Primary key"
+            tests:
+              - not_null
+
+          - name: SalesOrderDetailID
+            description: "Primary key"
+            tests:
+              - unique
+              - not_null
+
+          - name: ProductID
+            description: "Foreign key"
+            tests:
+              - not_null
+
+      - name: SALES_SALESORDERHEADER
+        description: "Raw sales order header data"
+        columns:
+          - name: SalesOrderID
+            description: "Primary key"
+            tests:
+              - unique
+              - not_null
+
+      - name: SALES_SALESORDERHEADERSALESREASON
+        columns:
+          - name: SalesReasonID
+            description: "Foreign and Primary key"
+            tests:
+              - not_null
+
+          - name: SalesOrderID
+            description: "Foreign and Primary key"
+            tests:
+              - not_null
+
+      - name: SALES_SALESREASON
+        columns:
+          - name: SalesReasonID
+            description: "Primary key"
+            tests:
+              - unique
+              - not_null
+
+      - name: SALES_SALESTERRITORY
+        columns:
+          - name: TerritoryID
+            description: "Primary Key"
+            tests:
+              - unique
+              - not_null
+
+      - name: PERSON_STATEPROVINCE
+        columns:
+          - name: StateProvinceID
+            description: "Primary key"
+            tests:
+              - unique
+              - not_null
+
+          - name: CountryRegionCode
+            description: "Foreign key"
+            tests:
+              - not_null
+
+          - name: TerritoryID
+            description: "Foreign key"
+            tests:
+              - not_null
+
+      - name: SALES_STORE
+        columns:
+          - name: BusinessEntityID
+            description: "Foreign and Primary key"
+            tests:
+              - not_null
