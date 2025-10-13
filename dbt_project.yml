@@ -19,10 +19,12 @@ models:
   gsabbado_dbt_aw:
     staging:
       +materialized: view
+      +schema: stg
     marts:
       +materialized: table
-    +meta:
-      intermediate:
+      +schema: marts
+    intermediate:
         +materialized: view
+        +schema: int
 flags:
   require_generic_test_arguments_property: true
