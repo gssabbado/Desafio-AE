@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_territory 
+  - name: dim_territory
     description: "Dimension table with geographic territory and sales performance data."
     columns:
       - name: territory_pk
@@ -19,9 +19,9 @@ models:
         description: "Foreign key to the country/region dimension."
         tests:
           - relationships:
-              to: ref('dim_country_region')
-              field: country_region_pk
-
+              arguments:
+                to: ref('dim_country_region')
+                field: country_region_pk
       - name: sales_ytd
         description: "Sales year-to-date for the territory."
 

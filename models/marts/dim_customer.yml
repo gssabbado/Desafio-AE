@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_customer 
+  - name: dim_customer
     description: "Dimension model containing customer information, including personal details and associated store."
     columns:
       - name: customer_pk
@@ -14,23 +14,23 @@ models:
         description: "Foreign key to the person dimension."
         tests:
           - relationships:
-              to: ref('dim_person')
-              field: person_pk
-
+              arguments:
+                to: ref('dim_person')
+                field: person_pk
       - name: store_fk
         description: "Foreign key to the store dimension."
         tests:
           - relationships:
-              to: ref('dim_store')
-              field: store_pk
-
+              arguments:
+                to: ref('dim_store')
+                field: store_pk
       - name: territory_fk
         description: "Foreign key to the territory dimension."
         tests:
           - relationships:
-              to: ref('dim_territory')
-              field: territory_pk
-
+              arguments:
+                to: ref('dim_territory')
+                field: territory_pk
       - name: person_type
         description: "The type of person (e.g., Employee, Individual Customer)."
 

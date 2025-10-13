@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_sales_order 
+  - name: dim_sales_order
     description: "Dimensional table containing all order line items and their transactional details."
     columns:
       - name: order_pk
@@ -20,23 +20,23 @@ models:
         description: "Foreign key to the territory dimension."
         tests:
           - relationships:
-              to: ref('dim_territory')
-              field: territory_pk
-
+              arguments:
+                to: ref('dim_territory')
+                field: territory_pk
       - name: customer_fk
         description: "Foreign key to the customer dimension."
         tests:
           - relationships:
-              to: ref('dim_customer')
-              field: customer_pk
-
+              arguments:
+                to: ref('dim_customer')
+                field: customer_pk
       - name: creditcard_fk
         description: "Foreign key to the credit card dimension."
         tests:
           - relationships:
-              to: ref('dim_creditcard')
-              field: creditcard_pk
-
+              arguments:
+                to: ref('dim_creditcard')
+                field: creditcard_pk
       - name: order_date
         description: "The date the order was placed."
         tests:

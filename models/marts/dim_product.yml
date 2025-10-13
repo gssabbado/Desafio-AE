@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_product 
+  - name: dim_product
     description: "Dimension model containing product information, including category and subcategory."
     columns:
       - name: product_pk
@@ -14,16 +14,16 @@ models:
         description: "Foreign key to the product category dimension."
         tests:
           - relationships:
-              to: ref('dim_product_category')
-              field: product_category_pk
-
+              arguments:
+                to: ref('dim_product_category')
+                field: product_category_pk
       - name: product_subcategory_fk
         description: "Foreign key to the product subcategory dimension."
         tests:
           - relationships:
-              to: ref('dim_product_subcategory')
-              field: product_subcategory_pk
-
+              arguments:
+                to: ref('dim_product_subcategory')
+                field: product_subcategory_pk
       - name: product_name
         description: "The name of the product."
 
