@@ -12,7 +12,7 @@ state_province as (
 
 
 
-, joined as (
+joined as (
     select
         state_province.state_province_pk,
         address.address_pk,

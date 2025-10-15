@@ -4,11 +4,11 @@ with orders as (
 
 joined as (
     select
-        order_pk,
-        sales_order_pk,
+        sales_order_detail_pk,
+        sales_order_fk,
         creditcard_fk,
         product_fk,
-        territory_fk,
+        address_fk,
         customer_fk,
         order_date,
         due_date,
@@ -28,11 +28,11 @@ joined as (
 
 metrics as (
     select
-        order_pk,
-        sales_order_pk,
+        sales_order_detail_pk,
+        sales_order_fk,
         creditcard_fk,
         product_fk,
-        territory_fk,
+        address_fk,
         customer_fk,
         order_date,
         due_date,

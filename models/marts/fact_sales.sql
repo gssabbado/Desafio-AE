@@ -15,14 +15,14 @@ final as (
         ship_date,
         has_online_order,
         has_discount,
-        status
+        status,
         quantity,
         unit_price,
         gross_total,
         unit_price_discount,
         net_total,
         tax_amt,
-        freight,
+        freight
 
     from sales
 )

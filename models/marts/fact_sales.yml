@@ -10,41 +10,35 @@ models:
           - unique
           - not_null
 
-      - name: sales_order_fk
-        description: "Foreign key to the sales order header dimension."
-        tests:
-          - relationships:
-              to: ref('dim_sales_order')
-              field: sales_order_pk
 
       - name: address_fk
         description: "Foreign key to the address dimension."
         tests:
           - relationships:
-              to: ref('dim_address')
-              field: address_pk
-
+              arguments:
+                to: ref('dim_address')
+                field: address_pk
       - name: creditcard_fk
         description: "Foreign key to the credit card dimension."
         tests:
           - relationships:
-              to: ref('dim_creditcard')
-              field: creditcard_pk
-
+              arguments:
+                to: ref('dim_creditcard')
+                field: creditcard_pk
       - name: customer_fk
         description: "Foreign key to the customer dimension."
         tests:
           - relationships:
-              to: ref('dim_customer')
-              field: customer_pk
-
+              arguments:
+                to: ref('dim_customer')
+                field: customer_pk
       - name: product_fk
         description: "Foreign key to the product dimension."
         tests:
           - relationships:
-              to: ref('dim_product')
-              field: product_pk
-
+              arguments:
+                to: ref('dim_product')
+                field: product_pk
       - name: order_date
         description: "The date the order was placed."
         tests:

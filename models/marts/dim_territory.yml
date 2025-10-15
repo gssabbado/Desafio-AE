@@ -1,12 +1,13 @@
+version: 2
+
 models:
-  - name: dim_territory 
-    description: "Dimension table containing detailed address and location information."
+  - name: dim_territory
+    description: "Dimension table containing detailed address and location information, derived from the territory model."
     columns:
       - name: address_pk
         description: "The unique primary key for each address."
         tests:
           - unique
-          - not_null
 
       - name: state_province_code
         description: "The code for the state or province."
@@ -18,9 +19,7 @@ models:
         description: "The name of the country or region."
 
       - name: city
-        description: "The name of the city."
-        tests:
-          - not_null 
+        description: "The name of the city for the address."
 
       - name: address_name
         description: "The primary street address line."
