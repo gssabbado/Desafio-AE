@@ -1,25 +1,15 @@
-with orders as (
-    select * from {{ ref('int_orders') }}
+with reason as (
+    select * from {{ ref('int_orders_reasons_aggregated') }}
 ),
 
 final as (
     select
 
-        order_pk,
         sales_order_pk,
-        sales_order_detail_pk,
-        territory_fk,
-        customer_fk,
-        creditcard_fk,
-        order_date,
-        quantity,
-        unit_price,
-        unit_price_discount,
-        tax_amt,
-        freight,
-        status
+        reason_name_concat,
+        reason_type_concat
 
-    from orders
+    from reason
 )
 
 select * from final
