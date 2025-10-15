@@ -15,9 +15,9 @@ store as (
 , joined as (
     select
         customer.customer_pk,
-        customer.person_fk,
-        customer.store_fk,
-        customer.territory_fk,
+        --customer.person_fk,
+        --customer.store_fk,
+        --customer.territory_fk,
         person.person_type as person_type,
         person.person_name,
         store.store_name

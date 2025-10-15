@@ -18,8 +18,6 @@ subcategory as (
         category.product_category_pk,
         product.product_subcategory_fk,
         product.product_name,
-        product.standard_cost,
-        product.list_price,
         category.product_category_name as category_name,
         subcategory.product_subcategory_name as subcategory_name
         from product
