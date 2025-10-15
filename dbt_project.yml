@@ -4,6 +4,10 @@ config-version: 2
 
 profile: 'default'
 
+vars:
+  start_date: '2011-01-01'
+  end_date: '2026-12-31'
+
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]

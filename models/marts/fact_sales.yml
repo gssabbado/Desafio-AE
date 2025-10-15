@@ -1,33 +1,69 @@
 version: 2
 
 models:
-  - name: fact_sales
-    description: "Fact table containing all sales transactions with calculated metrics."
+  - name: fact_sales # This must match your model's filename
+    description: "Fact table containing all sales order line items with financial metrics and flags."
     columns:
-      - name: order_pk
-        description: "The unique primary key for each order line item."
+      - name: sales_order_detail_pk
+        description: "The unique primary key for each sales order line item."
         tests:
           - unique
           - not_null
 
-      - name: territory_fk
-        description: "Foreign key to the territory dimension."
+      - name: sales_order_fk
+        description: "Foreign key to the sales order header dimension."
         tests:
           - relationships:
-              arguments:
-                to: ref('dim_territory')
-                field: territory_pk
+              to: ref('dim_sales_order')
+              field: sales_order_pk
+
+      - name: address_fk
+        description: "Foreign key to the address dimension."
+        tests:
+          - relationships:
+              to: ref('dim_address')
+              field: address_pk
+
+      - name: creditcard_fk
+        description: "Foreign key to the credit card dimension."
+        tests:
+          - relationships:
+              to: ref('dim_creditcard')
+              field: creditcard_pk
+
       - name: customer_fk
         description: "Foreign key to the customer dimension."
         tests:
           - relationships:
-              arguments:
-                to: ref('dim_customer')
-                field: customer_pk
+              to: ref('dim_customer')
+              field: customer_pk
+
+      - name: product_fk
+        description: "Foreign key to the product dimension."
+        tests:
+          - relationships:
+              to: ref('dim_product')
+              field: product_pk
+
       - name: order_date
         description: "The date the order was placed."
         tests:
           - not_null
+
+      - name: due_date
+        description: "The date the order payment is due."
+
+      - name: ship_date
+        description: "The date the order was shipped."
+
+      - name: has_online_order
+        description: "A boolean flag indicating if the order was placed online."
+
+      - name: has_discount
+        description: "A boolean flag indicating if a discount was applied."
+
+      - name: status
+        description: "The status of the order (e.g., Shipped, In Process)."
 
       - name: quantity
         description: "The quantity of the product ordered."
@@ -35,26 +71,17 @@ models:
       - name: unit_price
         description: "The unit price of the product."
 
+      - name: gross_total
+        description: "The total gross amount for the line item (quantity * unit_price)."
+
       - name: unit_price_discount
         description: "The discount applied to the unit price."
+
+      - name: net_total
+        description: "The total net amount for the line item after discounts."
 
       - name: tax_amt
         description: "The tax amount for the order line."
 
       - name: freight
         description: "The freight cost for the order."
-
-      - name: gross_total
-        description: "The total gross amount for the line item (quantity * unit_price)."
-
-      - name: net_total
-        description: "The total net amount for the line item after discounts."
-
-      - name: status
-        description: "The status of the order (e.g., Shipped, In Process)."
-
-      - name: sales_reasons
-        description: "A comma-separated list of sales reasons associated with the order."
-
-      - name: card_type
-        description: "The type of credit card used for the purchase (e.g., Vista, Colonial)."

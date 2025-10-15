@@ -8,7 +8,7 @@ reason_header as (
 
  joined as (
     select distinct
-        reason_header.sales_order_fk,
+        reason_header.sales_order_fk as sales_order_pk,
         listgg(reason.reason_name, ', ') within group (order by reason_name) over (partition by reason_header.sales_order_fk) as reason_name_concat,
         listgg(reason.reason_type, ', ') within group (order by reason_type) over (partition by reason_header.sales_order_fk) as reason_type_concat
     
