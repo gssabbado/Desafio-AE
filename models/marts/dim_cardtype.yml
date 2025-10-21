@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_cardtype
+    description: "Dimension model containing creditcard information."
+    columns:
+      - name: creditcard_pk
+        description: "The unique primary key for each creditcard."
+        tests:
+          - unique
+          - not_null
+
+      - name: card_type
+        description: "The type of the creditcard was used."

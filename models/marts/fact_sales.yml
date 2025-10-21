@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: fact_sales # This must match your model's filename
+  - name: fact_sales 
     description: "Fact table containing all sales order line items with financial metrics and flags."
     columns:
       - name: sales_order_detail_pk
